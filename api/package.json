@@ -1,0 +1,34 @@
+{
+  "name": "findme-restful-api",
+  "private": true,
+  "scripts": {
+    "start": "nodemon -L app/www"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "body-parser": "~1.0.0",
+    "bson": "latest",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.0.0",
+    "ejs": "~0.8.5",
+    "express": "~4.0.0",
+    "express-session": "~1.0.0",
+    "method-override": "~1.0.0",
+    "mongoose": "^4.4.19",
+    "morgan": "~1.0.0",
+    "passport": "~0.1.17",
+    "passport-facebook": "~1.0.2",
+    "passport-local": "~0.1.6",
+    "passport-http-bearer": "latest",
+    "passport-oauth2-client-password": "0.1.x",
+    "connect-ensure-login": "0.1.x",
+    "oauth2orize": "0.x.x",
+    "passport-http": "latest",
+    "nconf": "latest",
+    "twilio": "latest",
+    "node-gcm": "latest",
+    "mongoose-auto-increment": "latest",
+    "passport-google-oauth2": "latest",
+    "passport-facebook": "latest"
+  }
+}

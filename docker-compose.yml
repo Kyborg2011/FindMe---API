@@ -1,0 +1,15 @@
+web:
+  build: .
+  volumes:
+    - "./api:/src/app"
+  environment:
+    - VIRTUAL_HOST=findme.luceolab.com
+  links:
+    - "db:mongo"
+
+db:
+  image: mongo
+  ports:
+    - "27017:27017"
+  volumes:
+    - ./data/db:/data/db

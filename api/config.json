@@ -1,0 +1,32 @@
+{
+    "port" : "80",
+    "mainDomain": "https://findme.luceolab.com",
+    "security": {
+        "tokenLife" : "100000"
+    },
+    "mongoose": {
+        "uri": "mongodb://mongo:27017/findme-db"
+    },
+    "twilio": {
+        "authToken": "014250766e91be964c5630efdc692077",
+        "accountSid": "ACe33e206a82ab3ca3aaf962809b1af272",
+        "senderNumber": "+15005550006",
+        "defaultCountryCode": "+38"
+    },
+    "firebase": {
+        "notifications": {
+            "server_key": "AIzaSyA6S0ymJrAMD0ASDWXfuQ2uLBcPflOpbZg",
+            "sender_id": "862359379268"
+        }
+    },
+    "oauth": {
+        "google": {
+            "clientId": "777488367264-st7lgrufv1vs7fsfogjuiip376p8iml1.apps.googleusercontent.com",
+            "clientSecret": "xRMaRv1n1yL6Q-6Z-T4txHru"
+        },
+        "facebook": {
+            "clientId": "720106874813951",
+            "clientSecret": "e2e4c87bc594af833caebb01b70ff0f6"
+        }
+    }
+}
