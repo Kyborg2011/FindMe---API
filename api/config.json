@@ -9,18 +9,18 @@
     },
     "firebase": {
         "notifications": {
-            "server_key": "AIzaSyA6S0ymJrAMD0ASDWXfuQ2uLBcPflOpbZg",
-            "sender_id": "862359379268"
+            "server_key": "",
+            "sender_id": ""
         }
     },
     "oauth": {
         "google": {
-            "clientId": "777488367264-st7lgrufv1vs7fsfogjuiip376p8iml1.apps.googleusercontent.com",
-            "clientSecret": "xRMaRv1n1yL6Q-6Z-T4txHru"
+            "clientId": "",
+            "clientSecret": ""
         },
         "facebook": {
-            "clientId": "720106874813951",
-            "clientSecret": "e2e4c87bc594af833caebb01b70ff0f6"
+            "clientId": "",
+            "clientSecret": ""
         }
     }
 }
