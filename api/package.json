@@ -1,26 +1,39 @@
 {
   "name": "findme-restful-api",
+  "version": "0.0.2",
+  "description": "REST API using express, mongoose, passport.js for FindMe project",
+  "author": "Anton Babinin <wkyborgw@gmail.com>",
+  "main": "bin/www",
   "private": true,
   "scripts": {
     "start": "nodemon -L bin/www"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Kyborg2011/findme-api.git"
+  },
   "dependencies": {
     "nconf": "latest",
     "node-gcm": "latest",
-    "mongoose-auto-increment": "latest",
     "bcrypt-nodejs": "latest",
-    "bson": "latest",
     "body-parser": "latest",
     "express": "~4.0.0",
+    "joi": "^9.0.4",
+    "express-validation": "latest",
+    "helmet": "latest",
     "mongoose": "^4.4.19",
+    "mongoose-auto-increment": "latest",
+    "mongoose-float": "latest",
+    "bluebird": "latest",
     "passport": "~0.1.17",
+    "oauth2orize": "0.x.x",
     "passport-facebook": "~1.0.2",
     "passport-local": "~0.1.6",
     "passport-http-bearer": "latest",
     "passport-oauth2-client-password": "0.1.x",
-    "oauth2orize": "0.x.x",
     "passport-http": "latest",
     "passport-google-oauth2": "latest",
     "passport-facebook": "latest"
-  }
+  },
+  "license": "MIT"
 }

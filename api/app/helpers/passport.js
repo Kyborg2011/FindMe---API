@@ -1,5 +1,5 @@
 // config/passport.js
-var config = require('./nconfig');
+var config = require('./nconf');
 
 var crypto = require('crypto');
 var bcrypt = require('bcrypt-nodejs');
@@ -13,10 +13,10 @@ var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 // load up models
-var User = require('../app/models/user');
-var Client = require('../app/models/client');
-var AccessToken = require('../app/models/accesstoken');
-var RefreshToken = require('../app/models/refreshtoken');
+var User = require('../models/user');
+var Client = require('../models/oauth2-client');
+var AccessToken = require('../models/oauth2-access-token');
+var RefreshToken = require('../models/oauth2-refresh-token');
 
 module.exports = function(passport) {
     /* Basic authentication pop-up */
@@ -88,7 +88,7 @@ module.exports = function(passport) {
                     );
                 } else {
                     if (Math.round((Date.now() - token.created) / 1000) >
-                        config.get('security:tokenLife')) {
+                        config.get('env:security:tokenLife')) {
                         AccessToken.remove({
                             token: accessToken
                         }, function(err) {
@@ -119,9 +119,9 @@ module.exports = function(passport) {
     ));
     /* Google OAuth2.0 Strategy */
     passport.use(new GoogleStrategy({
-            clientID: config.get("oauth:google:clientId"),
-            clientSecret: config.get("oauth:google:clientSecret"),
-            callbackURL: config.get("mainDomain") + "/auth/google/callback",
+            clientID: config.get("credentials:google:clientId"),
+            clientSecret: config.get("credentials:google:clientSecret"),
+            callbackURL: config.get("env:mainDomain") + "/auth/google/callback",
             passReqToCallback: true,
             session: false
         },
@@ -159,9 +159,9 @@ module.exports = function(passport) {
     ));
     // Facebook oAuth2 Strategy
     passport.use(new FacebookStrategy({
-            clientID: config.get("oauth:facebook:clientId"),
-            clientSecret: config.get("oauth:facebook:clientSecret"),
-            callbackURL: config.get("mainDomain") + "/auth/facebook/callback",
+            clientID: config.get("credentials:facebook:clientId"),
+            clientSecret: config.get("credentials:facebook:clientSecret"),
+            callbackURL: config.get("env:mainDomain") + "/auth/facebook/callback",
             passReqToCallback: true,
             profileFields: ['id', 'displayName', 'email'],
             session: false

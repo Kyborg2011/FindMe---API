@@ -1,4 +1,4 @@
-# RESTful API v0.0.1
+# RESTful API v0.0.2
 
 This RESTful API has been written for an Android application "FindMe" (in development right now).
 
