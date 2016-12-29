@@ -3,7 +3,7 @@ web:
   volumes:
     - "./api:/src/app"
   environment:
-    - VIRTUAL_HOST=findme.luceolab.com
+    - VIRTUAL_HOST=rest.api.com
   links:
     - "db:mongo"
 
