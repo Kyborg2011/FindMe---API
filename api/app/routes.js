@@ -7,7 +7,6 @@ var UserModel = require('./models/user');
 var ClientModel = require('./models/client');
 var AccessTokenModel = require('./models/accesstoken');
 var RefreshTokenModel = require('./models/refreshtoken');
-var sms = require('./controllers/sms');
 var firebase = require('./controllers/firebase');
 
 module.exports = function(app, passport) {

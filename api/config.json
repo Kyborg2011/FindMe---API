@@ -1,17 +1,11 @@
 {
-    "port" : "80",
+    "port" : "8080",
     "mainDomain": "https://findme.luceolab.com",
     "security": {
         "tokenLife" : "100000"
     },
     "mongoose": {
-        "uri": "mongodb://mongo:27017/findme-db"
-    },
-    "twilio": {
-        "authToken": "014250766e91be964c5630efdc692077",
-        "accountSid": "ACe33e206a82ab3ca3aaf962809b1af272",
-        "senderNumber": "+15005550006",
-        "defaultCountryCode": "+38"
+        "uri": "mongodb://localhost:27017/find-me-db"
     },
     "firebase": {
         "notifications": {

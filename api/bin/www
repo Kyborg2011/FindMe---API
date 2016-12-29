@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-var config   = require('./config/nconfig');
+
+var config   = require('../config/nconfig');
 var https = require('https');
 var http = require('http');
 var express  = require('express');
@@ -8,25 +9,21 @@ var port     = config.get("port");
 var mongoose = require('mongoose');
 
 var passport = require('passport');
-var flash    = require('connect-flash');
-var morgan       = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
-var session      = require('express-session');
-var fs = require("fs");
+require('../config/passport')(passport);
 
 mongoose.connect(config.get("mongoose:uri"));
 
-var oauth2 = require('./app/oauth2.js');
+var oauth2 = require('../app/oauth2.js');
 
-require('./config/passport')(passport);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-app.use(morgan('dev'));
-app.use(bodyParser());
-app.set('view engine', 'ejs');
 app.use(passport.initialize());
 
-require('./app/routes.js')(app, passport);
+require('../app/routes.js')(app, passport);
 
 http.createServer(app).listen(port);
 

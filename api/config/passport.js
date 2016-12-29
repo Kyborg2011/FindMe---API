@@ -3,7 +3,6 @@ var config = require('./nconfig');
 
 var crypto = require('crypto');
 var bcrypt = require('bcrypt-nodejs');
-var sms = require('../app/controllers/sms');
 
 // load authentication strategies
 var BasicStrategy = require('passport-http').BasicStrategy;
@@ -231,8 +230,7 @@ module.exports = function(passport) {
                         var cryptoString = buf.toString('hex');
                         var hash = bcrypt.hashSync(cryptoString,
                             bcrypt.genSaltSync(8), null);
-                        sms("Verification code: " +
-                            cryptoString, newUser.local.phone);
+
                         newUser.local.activation_code = hash;
                         newUser.save(function(err) {
                             if (err)
