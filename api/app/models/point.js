@@ -1,6 +1,6 @@
-var mongoose = require('mongoose'),
-  autoIncrement = require('mongoose-auto-increment'),
-  Float = require('mongoose-float').loadType(mongoose, 2);
+var mongoose = require( 'mongoose' ),
+  autoIncrement = require( 'mongoose-auto-increment' ),
+  Float = require( 'mongoose-float' ).loadType( mongoose, 2 );
 
 /**
  * Point type schema

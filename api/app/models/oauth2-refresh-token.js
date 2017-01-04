@@ -1,5 +1,5 @@
-var mongoose = require('mongoose'),
-  autoIncrement = require('mongoose-auto-increment');
+var mongoose = require( 'mongoose' ),
+  autoIncrement = require( 'mongoose-auto-increment' );
 
 /**
  * Refresh Token Schema

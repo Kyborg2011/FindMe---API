@@ -1,6 +1,6 @@
-var mongoose = require('mongoose'),
-  autoIncrement = require('mongoose-auto-increment'),
-  bcrypt = require('bcrypt-nodejs');
+var mongoose = require( 'mongoose' ),
+  autoIncrement = require( 'mongoose-auto-increment' ),
+  bcrypt = require( 'bcrypt-nodejs' );
 
 /**
  * User Schema
@@ -37,7 +37,7 @@ var User = mongoose.Schema({
  * Schema's methods:
  */
 User.methods.generateHash = function( password ) {
-  return bcrypt.hashSync( password, bcrypt.genSaltSync(8), null );
+  return bcrypt.hashSync( password, bcrypt.genSaltSync( 8 ), null );
 };
 User.methods.validPassword = function( password ) {
   return bcrypt.compareSync( password, this.local.password );
@@ -49,7 +49,7 @@ User.methods.validPassword = function( password ) {
 User.virtual( 'userId' )
   .get( function() {
     return this.id;
-  } );
+  });
 
 /**
  * @typedef User

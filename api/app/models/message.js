@@ -1,12 +1,12 @@
-var mongoose = require('mongoose'),
-  autoIncrement = require('mongoose-auto-increment');
+var mongoose = require( 'mongoose' ),
+  autoIncrement = require( 'mongoose-auto-increment' );
 
 var options = { discriminatorKey: 'kind' };
 
 /**
  * Message type schema
  */
-var Message = mongoose.Schema( {
+var Message = mongoose.Schema({
   kind: { type: String },
   sender: { type: Number, ref: 'User' },
   recipient: { type: Number, ref: 'User' },

@@ -1,38 +1,45 @@
 #!/usr/bin/env node
+var config = require( '../app/helpers/nconf.js' ),
+  http = require( 'http' ),
+  express = require( 'express' ),
+  methodOverride = require( 'method-override' ),
+  morgan = require( 'morgan' ),
+  errorHandler = require( 'express-error-handler' ),
+  bodyParser = require( 'body-parser' ),
+  helmet = require( 'helmet' ),
+  mongoose = require( 'mongoose' ),
+  bluebird = require( 'bluebird' ),
+  mongooseAutoIncrement = require( 'mongoose-auto-increment' ),
+  passport = require( 'passport' );
 
-var config = require('../app/helpers/nconf.js');
-var http = require('http');
-var express = require('express');
+// Init Express.js
 var app = express();
-var port = config.get('env:port');
-var mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
-var helmet = require('helmet');
-var autoIncrement = require('mongoose-auto-increment');
 
-mongoose.connect(config.get("env:mongoose:uri"));
+// Configure Mongoose ODM
+mongoose.Promise = bluebird;
+mongoose.connect( config.get( 'env:mongoose:uri' ) );
+mongooseAutoIncrement.initialize( mongoose.connection );
 
-var connection = mongoose.createConnection(config.get("env:mongoose:uri"));
-autoIncrement.initialize(connection);
+// Mongoose connection events
+mongoose.connection.on( 'error', function ( err ) {
+  console.error( 'Connection to database error: ' + err );
+});
 
-var passport = require('passport');
-var bodyParser = require('body-parser');
-require('../app/helpers/passport')(passport);
+// Express.js app configure
+app.use( morgan( 'dev' ) ); // Log every request to the console
+app.use( methodOverride() ); // Checks request.body for HTTP method overrides
+app.use( helmet.noCache() );
+app.use( helmet.frameguard() );
+app.use( bodyParser.json() ); // Parses request body and populates request.body
+app.use( bodyParser.urlencoded({ extended: true }) );
+app.use( passport.initialize() ); // Passport.js initialization
+app.use( errorHandler() );
 
-var oauth2 = require('../app/helpers/auth');
+// Configure Passport.js oAuth2 strategies
+require( '../app/helpers/passport' )( passport );
 
-app.use(helmet.noCache());
-app.use(helmet.frameguard());
+// Configure API routes
+require( '../app/routes/routes.js' )( app, passport );
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
-app.use(passport.initialize());
-
-require('../app/routes/routes.js')(app, passport);
-
-http.createServer(app).listen(port);
-
-console.log('RESTful API is started on port ' + port);
+http.createServer( app ).listen( config.get( 'env:port' ) );
+console.log( 'RESTful API is started on port ' + config.get( 'env:port' ) );

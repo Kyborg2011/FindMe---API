@@ -1,5 +1,5 @@
-var path = require('path'),
-  nconf = require('nconf');
+var path = require( 'path' ),
+  nconf = require( 'nconf' );
 
 /**
  * Setup nconf to use (in-order):
@@ -11,9 +11,9 @@ var path = require('path'),
  */
 nconf.argv()
   .env()
-  .file( { file: path.join ( __dirname, '../../config/env.json' ) } );
+  .file({ file: path.join ( __dirname, '../../config/env.json' ) });
 
-nconf.add('domain-logic', { type: 'file', file: path.join( __dirname, '../../config/domain-logic.json' ) } );
-nconf.add('credentials', { type: 'file', file: path.join( __dirname, '../../config/credentials.json' ) } );
+nconf.add( 'domain-logic', { type: 'file', file: path.join( __dirname, '../../config/domain-logic.json' ) });
+nconf.add( 'credentials', { type: 'file', file: path.join( __dirname, '../../config/credentials.json' ) });
 
 module.exports = nconf;

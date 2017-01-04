@@ -1,6 +1,6 @@
-var mongoose = require('mongoose'),
-  autoIncrement = require('mongoose-auto-increment'),
-  Message = require('./message');
+var mongoose = require( 'mongoose' ),
+  autoIncrement = require( 'mongoose-auto-increment' ),
+  Message = require( './message' );
 
 // Discriminators - a mongoose schema inheritance mechanism
 var options = { discriminatorKey: 'kind' };
@@ -8,7 +8,7 @@ var options = { discriminatorKey: 'kind' };
 /**
  * Request Location Message type schema (parent type is Message)
  */
-var RequestLocationMessage = mongoose.Schema( {
+var RequestLocationMessage = mongoose.Schema({
   isAccepted: { type: Number }
 }, options );
 
