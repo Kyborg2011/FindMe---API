@@ -1,6 +1,6 @@
-var mongoose = require( 'mongoose' ),
-  autoIncrement = require( 'mongoose-auto-increment' ),
-  Message = require( './message' ),
+var mongoose = require( 'mongoose' );
+var autoIncrement = require( 'mongoose-auto-increment' );
+var Message = require( './message' ),
   Float = require( 'mongoose-float' ).loadType( mongoose, 2 );
 
 // Discriminators - a mongoose schema inheritance mechanism

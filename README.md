@@ -1,4 +1,4 @@
-# RESTful API v0.0.2
+# RESTful API
 
 This RESTful API has been written for an Android application "FindMe" (in development right now).
 
@@ -26,7 +26,7 @@ This RESTful API has been written for an Android application "FindMe" (in develo
 
 `npm install`
 
-`nodemon -L`
+`npm run start-dev`
 
 ## Deploy the application:
 
@@ -34,4 +34,4 @@ This RESTful API has been written for an Android application "FindMe" (in develo
 
 ## Credits
 
-Has been written by ***Anton Babinin***.
+Has been written by ***[Anton Babinin](mailto:wkyborgw@gmail.com)***.

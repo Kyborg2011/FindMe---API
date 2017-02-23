@@ -1,14 +1,11 @@
 {
   "name": "findme-restful-api",
-  "version": "0.0.9",
   "description": "RESTful API (using for FindMe Android application). Stack: Node.js + Express.js + Passport.js + Mongoose ODM",
   "author": "Anton Babinin <wkyborgw@gmail.com>",
-  "main": "bin/www",
-  "private": true,
+  "private": false,
+  "main": "app.babel.js",
   "scripts": {
-    "gulp-setup": "npm install -g gulp",
-    "gulp": "gulp",
-    "start-dev": "nodemon -L bin/www"
+    "start-dev": "nodemon -L app.babel.js"
   },
   "repository": {
     "type": "git",
@@ -16,34 +13,43 @@
   },
   "license": "MIT",
   "dependencies": {
-    "nconf": "latest",
     "bcrypt-nodejs": "latest",
-    "express": "4.x",
-    "express-validation": "latest",
-    "body-parser": "latest",
-    "method-override": "latest",
-    "morgan": "latest",
-    "express-error-handler": "latest",
-    "joi": "^9.0.4",
-    "helmet": "latest",
     "bluebird": "latest",
+    "body-parser": "latest",
+    "express": "4.x",
+    "express-error-handler": "latest",
+    "express-validation": "latest",
+    "helmet": "latest",
+    "joi": "^9.0.4",
+    "method-override": "latest",
     "mongoose": "4.x",
-    "mongoose-auto-increment": "latest",
+    "mongoose-auto-increment": "^5.0.1",
     "mongoose-float": "latest",
+    "morgan": "latest",
+    "nconf": "latest",
+    "node-gcm": "latest",
+    "oauth2orize": "0.x.x",
     "passport": "~0.1.17",
-    "passport-local": "~0.1.6",
+    "passport-facebook": "latest",
+    "passport-google-oauth2": "latest",
     "passport-http": "latest",
     "passport-http-bearer": "latest",
-    "oauth2orize": "0.x.x",
-    "passport-oauth2-client-password": "0.1.x",
-    "passport-google-oauth2": "latest",
-    "passport-facebook": "latest",
-    "node-gcm": "latest"
+    "passport-local": "~0.1.6",
+    "passport-oauth2-client-password": "0.1.x"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-cached": "^1.1.1",
-    "gulp-eslint": "^3.0.1",
-    "gulp-if": "^2.0.2"
+    "babel-cli": "^6.23.0",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "eslint": "^3.16.1",
+    "eslint-config-idiomatic": "^3.1.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
   }
 }

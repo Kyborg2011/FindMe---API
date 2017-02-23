@@ -14,17 +14,9 @@ module.exports = function( app, passport ) {
 
   /* RESTful API status page */
   app.get( '/api', function( req, res ) {
-    var message = new LocationMessage({
-      isAccepted: 355
+    return res.status( 200 ).send({
+      'result': 'ok'
     });
-    message.save();
-    ClientModel.find({}, function( err, users ) {
-      return res.send({
-        'users': 'aaaaa'
-      });
-    });
-
-
   });
 
   /* User login (getting of access token) */
