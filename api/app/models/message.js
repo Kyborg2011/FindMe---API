@@ -12,6 +12,7 @@ var Message = mongoose.Schema({
   recipient: { type: Number, ref: 'User' },
   parentMessage: { type: Number, ref: 'Message' },
   text: { type: String },
+  template: { type: mongoose.Schema.Types.Mixed },
   createdDate: {
     type: Date,
     default: Date.now

@@ -11,12 +11,6 @@ var options = { discriminatorKey: 'kind' };
  */
 var LatecomerMessage = mongoose.Schema({
   currentLocation: { type: Number, ref: 'Point' },
-  template: { type: mongoose.Schema.Types.Mixed },
-  attachments: [{
-    mimeType: { type: String },
-    url: { type: String },
-    notes: { type: String }
-  }],
   isAccepted: { type: Number },
   speed: { type: Float },
   arrivalCoordinates: {
