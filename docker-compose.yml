@@ -1,7 +1,7 @@
 web:
   build: .
   volumes:
-    - "./api:/src/app"
+    - "./src:/src/app"
   environment:
     - VIRTUAL_HOST=rest.api.com
   links:

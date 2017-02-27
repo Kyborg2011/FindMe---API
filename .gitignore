@@ -1,2 +1,2 @@
 data/db/*
-api/node_modules
+src/node_modules

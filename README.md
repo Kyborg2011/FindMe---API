@@ -22,7 +22,7 @@ This RESTful API has been written for an Android application "FindMe" (in develo
 
 ## Development mode (using nodemon):
 
-`cd api`
+`cd src`
 
 `npm install`
 

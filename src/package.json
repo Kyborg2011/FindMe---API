@@ -5,6 +5,7 @@
   "private": false,
   "main": "app.babel.js",
   "scripts": {
+    "test": "mocha",
     "start-dev": "nodemon -L app.babel.js"
   },
   "repository": {
@@ -16,11 +17,13 @@
     "bcrypt-nodejs": "latest",
     "bluebird": "latest",
     "body-parser": "latest",
+    "cors": "^2.8.1",
     "express": "4.x",
     "express-error-handler": "latest",
     "express-validation": "latest",
     "helmet": "latest",
-    "joi": "^9.0.4",
+    "http-status": "^1.0.1",
+    "joi": "^9.2.0",
     "method-override": "latest",
     "mongoose": "4.x",
     "mongoose-auto-increment": "^5.0.1",
@@ -44,7 +47,10 @@
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.23.0",
     "eslint": "^3.16.1",
-    "eslint-config-idiomatic": "^3.1.0"
+    "eslint-config-idiomatic": "^3.1.0",
+    "mocha": "^3.2.0",
+    "should": "^11.2.0",
+    "supertest": "^3.0.0"
   },
   "babel": {
     "presets": [

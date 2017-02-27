@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+var config = require( '../app/helpers/nconf.js' ),
+  http = require( 'http' ),
+  express = require( 'express' ),
+  methodOverride = require( 'method-override' ),
+  morgan = require( 'morgan' ),
+  errorHandler = require( 'express-error-handler' ),
+  bodyParser = require( 'body-parser' ),
+  helmet = require( 'helmet' ),
+  mongoose = require( 'mongoose' ),
+  bluebird = require( 'bluebird' ),
+  mongooseAutoIncrement = require( 'mongoose-auto-increment' ),
+  passport = require( 'passport' ),
+  cors = require( 'cors' );
+
+// init express.js
+var app = express();
+
+// configure Mongoose ODM
+mongoose.Promise = bluebird;
+mongoose.connect( config.get( 'env:mongoose:uri' ));
+mongooseAutoIncrement.initialize( mongoose.connection );
+
+// mongoose connection events
+mongoose.connection.on( 'error', ( err ) => {
+  console.error( 'Connection to database error: ' + err );
+});
+
+// log every request to the console
+app.use( morgan( 'dev' ));
+// checks request.body for HTTP method overrides
+app.use( methodOverride());
+app.use( helmet.noCache());
+app.use( helmet.frameguard());
+// parses request body and populates request.body
+app.use( bodyParser.json());
+app.use( bodyParser.urlencoded({ extended: true }));
+// passport.js initialization
+app.use( passport.initialize());
+app.use( errorHandler());
+// enable CORS - Cross Origin Resource Sharing
+app.use( cors());
+
+// configure Passport.js oAuth2 strategies
+require( '../app/helpers/passport' )( passport );
+
+// configure API routes
+require( '../app/routes/routes.js' )( app, passport );
+
+http.createServer( app ).listen( config.get( 'env:port' ));
+console.log( 'RESTful API is started on port ' + config.get( 'env:port' ));
